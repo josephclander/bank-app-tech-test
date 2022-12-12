@@ -1,13 +1,18 @@
 // file: account.js
 
-/**
- * Account class for holding logical info
- * @param {number} balance
- * @param {[objects]} transactions
- */
+/* Class representing the client's Account */
 class Account {
+  /**
+   * Create an account
+   * @param {number} balance
+   * @param {[objects]} transactions
+   */
   constructor() {
     this.transactions = [];
+  }
+
+  addDeposit(amount) {
+    this.transactions.push({ amount });
   }
 
   listTransactions() {
