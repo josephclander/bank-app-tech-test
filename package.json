@@ -1,0 +1,22 @@
+{
+  "name": "bank_app",
+  "version": "1.0.0",
+  "description": "An exercise in utilising TDD and correct process to build out a banking application",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest --watchAll"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/josephclander/bank-app-tech-test.git"
+  },
+  "author": "Joseph Lander",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/josephclander/bank-app-tech-test/issues"
+  },
+  "homepage": "https://github.com/josephclander/bank-app-tech-test#readme",
+  "devDependencies": {
+    "jest": "^29.3.1"
+  }
+}
