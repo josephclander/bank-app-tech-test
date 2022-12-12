@@ -1,5 +1,7 @@
 # Bank tech test
 
+[![Tests](https://github.com/josephclander/bank-app-tech-test/actions/workflows/tests.yml/badge.svg)](https://github.com/josephclander/bank-app-tech-test/actions/workflows/tests.yml)
+
 ## The assignment
 
 Given a client makes a deposit of 1000 on 10-01-2023
