@@ -1,4 +1,4 @@
-// file: account.test.js
+// file: src/account.test.js
 const Account = require("./account");
 
 describe("Account", () => {

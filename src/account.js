@@ -1,4 +1,4 @@
-// file: account.js
+// file: src/account.js
 
 /* Class representing the client's Account */
 class Account {

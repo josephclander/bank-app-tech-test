@@ -1,4 +1,4 @@
-// file: display.test.js
+// file: src/display.test.js
 const Display = require("./display");
 
 describe("Display", () => {

@@ -1,4 +1,4 @@
-// file: display.js
+// file: src/display.js
 
 /* Class to show account statements at given time */
 class Display {
