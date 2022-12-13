@@ -60,6 +60,10 @@ describe('Account', () => {
   });
   it('Checks for valid credit amount input', () => {
     const clientAccount = new Account();
-    expect(clientAccount.addDeposit('string')).toBe('Invalid credit input');
+    expect(clientAccount.addDeposit(-100)).toBe('Invalid credit input');
+  });
+  it('Checks for valid debit amount input', () => {
+    const clientAccount = new Account();
+    expect(clientAccount.addWithdrawal('string')).toBe('Invalid debit input');
   });
 });

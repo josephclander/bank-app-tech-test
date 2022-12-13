@@ -31,13 +31,21 @@ class Account {
   }
 
   addWithdrawal(debit) {
-    this.currentBalance -= debit;
-    this.transactions.push({
-      date: new Date(),
-      credit: 0,
-      debit,
-      balance: this.currentBalance,
-    });
+    try {
+      if (debit > 0 && typeof debit === 'number') {
+        this.currentBalance -= debit;
+        this.transactions.push({
+          date: new Date(),
+          credit: 0,
+          debit,
+          balance: this.currentBalance,
+        });
+        return 'withdrawal added';
+      }
+      throw Error('Invalid debit input');
+    } catch (err) {
+      return err.message;
+    }
   }
 
   listTransactions() {
