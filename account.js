@@ -4,15 +4,16 @@
 class Account {
   /**
    * Create an account
-   * @param {number} balance
+   * @param {number} currentBalance
    * @param {[objects]} transactions
    */
   constructor() {
+    this.balance = 0;
     this.transactions = [];
   }
 
   addDeposit(amount) {
-    this.transactions.push({ amount });
+    this.transactions.push({ amount, balance: this.balance + amount });
   }
 
   listTransactions() {

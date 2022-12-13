@@ -13,4 +13,10 @@ describe('Account', () => {
     expect(clientAccount.listTransactions()).not.toEqual([]);
     expect(firstTransactionAmount).toEqual(1000);
   });
+  it('adds one transaction and updates the transaction obj balance', () => {
+    const clientAccount = new Account();
+    clientAccount.addDeposit(1000);
+    const firstTransactionBalance = clientAccount.listTransactions()[0].balance;
+    expect(firstTransactionBalance).toEqual(1000);
+  });
 });
