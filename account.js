@@ -8,27 +8,27 @@ class Account {
    * @param {[objects]} transactions
    */
   constructor() {
-    this.balance = 0;
+    this.currentBalance = 0;
     this.transactions = [];
   }
 
   addDeposit(credit) {
-    this.balance += credit;
+    this.currentBalance += credit;
     this.transactions.push({
       date: new Date(),
       credit,
       debit: 0,
-      balance: this.balance,
+      balance: this.currentBalance,
     });
   }
 
   addWithdrawal(debit) {
-    this.balance -= debit;
+    this.currentBalance -= debit;
     this.transactions.push({
       date: new Date(),
       credit: 0,
       debit,
-      balance: this.balance,
+      balance: this.currentBalance,
     });
   }
 
