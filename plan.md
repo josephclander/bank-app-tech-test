@@ -34,10 +34,6 @@ class Account {
   listTransactions() {
     // return the array of transactions
   }
-
-  #getDate() {
-    // private method to find the date (maybe formatted)
-  }
 }
 
 class Display {
@@ -52,6 +48,10 @@ class Display {
   #listTransactions() {
     // private method to return an array of
     // all transactions
+  }
+
+  #formatDate() {
+    // private method to format the date
   }
 
   displayTransactions() {
