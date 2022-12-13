@@ -12,3 +12,5 @@ const accountDisplay = new Display(clientAccount.listTransactions());
 
 // eslint-disable-next-line no-console
 console.log(accountDisplay.displayTransactions());
+
+module.exports = { Account, Display };
