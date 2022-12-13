@@ -6,14 +6,14 @@ describe("Account", () => {
     const clientAccount = new Account();
     expect(clientAccount.listTransactions()).toEqual([]);
   });
-  it("adds one transaction that contains an amount of 1000 GBP", () => {
+  it("adds one credit transaction that contains an amount of 1000 GBP", () => {
     const clientAccount = new Account();
     clientAccount.addDeposit(1000);
-    const firstTransactionAmount = clientAccount.listTransactions()[0].amount;
+    const firstTransactionCredit = clientAccount.listTransactions()[0].credit;
     expect(clientAccount.listTransactions()).not.toEqual([]);
-    expect(firstTransactionAmount).toEqual(1000);
+    expect(firstTransactionCredit).toEqual(1000);
   });
-  it("adds one transaction and updates the transaction obj balance", () => {
+  it("adds one credit transaction and updates the transaction obj balance", () => {
     const clientAccount = new Account();
     clientAccount.addDeposit(1000);
     const firstTransactionBalance = clientAccount.listTransactions()[0].balance;
@@ -24,5 +24,11 @@ describe("Account", () => {
     clientAccount.addDeposit(1000);
     const firstTransactionDate = clientAccount.listTransactions()[0].date;
     expect(firstTransactionDate).toBeInstanceOf(Date);
+  });
+  it("adds one debit transaction that contains an amount of 500 GBP", () => {
+    const clientAccount = new Account();
+    clientAccount.addWithdrawal(500);
+    const firstTransactionDebit = clientAccount.listTransactions()[0].debit;
+    expect(firstTransactionDebit).toEqual(500);
   });
 });

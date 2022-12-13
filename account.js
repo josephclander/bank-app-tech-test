@@ -12,8 +12,12 @@ class Account {
     this.transactions = [];
   }
 
-  addDeposit(amount) {
-    this.transactions.push({ date: new Date(), amount, balance: this.balance + amount });
+  addDeposit(credit) {
+    this.transactions.push({ date: new Date(), credit, debit: 0, balance: this.balance + credit });
+  }
+
+  addWithdrawal(debit) {
+    this.transactions.push({ date: new Date(), credit: 0, debit, balance: this.balance + debit });
   }
 
   listTransactions() {
