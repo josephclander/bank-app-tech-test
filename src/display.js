@@ -16,7 +16,11 @@ class Display {
     const array = this.transactions;
     const formattedArray = [];
     const len = array.length;
+    // check for items in array
     if (len !== 0) {
+      // for loop to reverse order
+      // .map would be messy or involve adding second
+      // level of algorithmic complexity by sorting first
       for (let i = len - 1; i >= 0; i--) {
         const item = this.#formatTransaction(array[i]);
         formattedArray.push(item);
@@ -30,12 +34,14 @@ class Display {
     const credit = item.credit === 0 ? '' : `${item.credit.toFixed(2)} `;
     const debit = item.debit === 0 ? '' : `${item.debit.toFixed(2)} `;
     const balance = item.balance.toFixed(2);
-    return `${date} || ${credit}|| ${debit}|| ${balance}`;
+    const formattedString = `${date} || ${credit}|| ${debit}|| ${balance}`;
+    return formattedString;
   }
 
   displayTransactions() {
     const header = 'date || credit || debit || balance';
-    return [header, ...this.#listTransactions()].join('\n');
+    const displayString = [header, ...this.#listTransactions()].join('\n');
+    return displayString;
   }
 }
 
