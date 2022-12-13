@@ -30,6 +30,7 @@ class Display {
   }
 
   #formatTransaction(item) {
+    // unfortunately this does not take effect in GitHub actions node.js runner
     const date = item.date.toLocaleDateString('en-GB', {
       timeZone: 'Europe/London',
     });
