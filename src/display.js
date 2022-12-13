@@ -1,33 +1,36 @@
+/* eslint-disable class-methods-use-this */
 // file: src/display.js
 
 /* Class to show account statements at given time */
 class Display {
+  /**
+   * Create access to display functions
+   * @param {[objects]} transactions
+   */
   constructor(transactions) {
     this.transactions = transactions;
   }
 
-  #getHeader() {
-    // private method to return the header string
-    return "date || credit || debit || balance";
-  }
-
   #listTransactions() {
-    // private method to return an array of
-    // all transactions
     let listItemsString;
-    if (this.transactions.length != 0) {
+    if (this.transactions.length !== 0) {
       const item = this.transactions[0];
-      const date = item.date;
-      const credit = item.credit === 0 ? "" : `${item.credit.toFixed(2)} `;
-      const debit = item.debit === 0 ? "" : `${item.debit.toFixed(2)} `;
-      const balance = item.balance.toFixed(2);
-      listItemsString = `${date} || ${credit}|| ${debit}|| ${balance}`;
+      listItemsString = this.#formatTransaction(item);
     }
     return [listItemsString];
   }
 
+  #formatTransaction(item) {
+    const { date } = item;
+    const credit = item.credit === 0 ? '' : `${item.credit.toFixed(2)} `;
+    const debit = item.debit === 0 ? '' : `${item.debit.toFixed(2)} `;
+    const balance = item.balance.toFixed(2);
+    return `${date} || ${credit}|| ${debit}|| ${balance}`;
+  }
+
   displayTransactions() {
-    return [this.#getHeader(), ...this.#listTransactions()].join("\n");
+    const header = 'date || credit || debit || balance';
+    return [header, ...this.#listTransactions()].join('\n');
   }
 }
 
