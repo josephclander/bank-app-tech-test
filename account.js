@@ -13,7 +13,7 @@ class Account {
   }
 
   addDeposit(amount) {
-    this.transactions.push({ amount, balance: this.balance + amount });
+    this.transactions.push({ date: new Date(), amount, balance: this.balance + amount });
   }
 
   listTransactions() {
