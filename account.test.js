@@ -37,4 +37,13 @@ describe("Account", () => {
     const firstTransactionBalance = clientAccount.listTransactions()[0].balance;
     expect(firstTransactionBalance).toEqual(-500);
   });
+  it("can add two CREDITs and correctly update the transaction obj balance of each", () => {
+    const clientAccount = new Account();
+    clientAccount.addDeposit(500);
+    clientAccount.addDeposit(1000);
+    const firstTransactionBalance = clientAccount.listTransactions()[0].balance;
+    const secondTransactionBalance = clientAccount.listTransactions()[1].balance;
+    expect(firstTransactionBalance).toEqual(500);
+    expect(secondTransactionBalance).toEqual(1500);
+  });
 });

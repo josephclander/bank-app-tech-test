@@ -13,7 +13,8 @@ class Account {
   }
 
   addDeposit(credit) {
-    this.transactions.push({ date: new Date(), credit, debit: 0, balance: this.balance + credit });
+    this.balance += credit;
+    this.transactions.push({ date: new Date(), credit, debit: 0, balance: this.balance});
   }
 
   addWithdrawal(debit) {
