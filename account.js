@@ -17,7 +17,7 @@ class Account {
   }
 
   addWithdrawal(debit) {
-    this.transactions.push({ date: new Date(), credit: 0, debit, balance: this.balance + debit });
+    this.transactions.push({ date: new Date(), credit: 0, debit, balance: this.balance - debit });
   }
 
   listTransactions() {
