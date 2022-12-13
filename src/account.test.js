@@ -58,4 +58,8 @@ describe('Account', () => {
     expect(secondTransactionBalance).toEqual(1500);
     expect(thirdTransactionBalance).toEqual(2500);
   });
+  it('Checks for valid credit amount input', () => {
+    const clientAccount = new Account();
+    expect(clientAccount.addDeposit('string')).toBe('Invalid credit input');
+  });
 });

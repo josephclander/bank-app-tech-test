@@ -13,13 +13,21 @@ class Account {
   }
 
   addDeposit(credit) {
-    this.currentBalance += credit;
-    this.transactions.push({
-      date: new Date(),
-      credit,
-      debit: 0,
-      balance: this.currentBalance,
-    });
+    try {
+      if (credit > 0 && typeof credit === 'number') {
+        this.currentBalance += credit;
+        this.transactions.push({
+          date: new Date(),
+          credit,
+          debit: 0,
+          balance: this.currentBalance,
+        });
+        return 'deposit added';
+      }
+      throw Error('Invalid credit input');
+    } catch (err) {
+      return err.message;
+    }
   }
 
   addWithdrawal(debit) {
