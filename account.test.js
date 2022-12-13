@@ -46,4 +46,16 @@ describe("Account", () => {
     expect(firstTransactionBalance).toEqual(500);
     expect(secondTransactionBalance).toEqual(1500);
   });
+  it("can add CREDITs & DEBITs and correctly update the transaction obj balance of each", () => {
+    const clientAccount = new Account();
+    clientAccount.addDeposit(2000);
+    clientAccount.addWithdrawal(500);
+    clientAccount.addDeposit(1000);
+    const firstTransactionBalance = clientAccount.listTransactions()[0].balance;
+    const secondTransactionBalance = clientAccount.listTransactions()[1].balance;
+    const thirdTransactionBalance = clientAccount.listTransactions()[2].balance;
+    expect(firstTransactionBalance).toEqual(2000);
+    expect(secondTransactionBalance).toEqual(1500);
+    expect(thirdTransactionBalance).toEqual(2500);
+  });
 });
