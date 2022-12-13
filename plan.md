@@ -2,6 +2,14 @@
 
 Here are the results of my planning session. This is initially how I see the application being laid out.
 
+## Considerations
+
+A full featured banking app will contain more aspects than are mentioned in the requirements. I'm attempting to make as few assumptions about extra features that would be used and adhere to meeting the requirements as closely as possible.
+
+In my current plan, I am separating the banking logic from the display functions. I have also considered creating a 3rd class, `Transaction` but am leaving this currently but is possible for a refactor.
+
+The requirements need the display to show the balance at the point of that transaction. To keep business and UI separate, I am adding the calculation for the balance and adding that to the transaction object at the point it is created.
+
 ## Classes
 
 ### Account
@@ -14,13 +22,13 @@ class Account {
   }
 
   addDeposit(amount) {
-    // creates a transaction object with
-    // date, credit, debit, current balance
+    // creates a CREDIT transaction object with
+    // date, credit, debit, balance at transaction
   }
 
   addWithdrawl(amount) {
-    // creates a transaction object with
-    // date, credit, debit, balance information
+    // creates a DEBIT transaction object with
+    // date, credit, debit, balance at transaction
   }
 
   listTransactions() {
