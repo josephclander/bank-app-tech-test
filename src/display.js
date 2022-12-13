@@ -1,3 +1,4 @@
+/* eslint-disable no-plusplus */
 /* eslint-disable class-methods-use-this */
 // file: src/display.js
 
@@ -12,12 +13,16 @@ class Display {
   }
 
   #listTransactions() {
-    let listItemsString;
-    if (this.transactions.length !== 0) {
-      const item = this.transactions[0];
-      listItemsString = this.#formatTransaction(item);
+    const array = this.transactions;
+    const formattedArray = [];
+    const len = array.length;
+    if (len !== 0) {
+      for (let i = len - 1; i >= 0; i--) {
+        const item = this.#formatTransaction(array[i]);
+        formattedArray.push(item);
+      }
     }
-    return [listItemsString];
+    return formattedArray;
   }
 
   #formatTransaction(item) {
