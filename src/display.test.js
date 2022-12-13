@@ -7,4 +7,18 @@ describe("Display", () => {
     const result = "date || credit || debit || balance\n";
     expect(accountDisplay.displayTransactions()).toEqual(result);
   });
+  it("displays the numeric values for one CREDIT transaction (ignoring date)", () => {
+    const mockDate = new Date("2023-01-10");
+    const mockCredit = {
+      date: mockDate,
+      credit: 1000,
+      debit: 0,
+      balance: 1000,
+    };
+    const accountDisplay = new Display([mockCredit]);
+    // this would be the FULL correct string:
+    // "date || credit || debit || balance\n10/01/2023 || 1000.00 || || 1000.00";
+    const result = " || 1000.00 || || 1000.00";
+    expect(accountDisplay.displayTransactions()).toContain(result);
+  });
 });
