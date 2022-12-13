@@ -78,6 +78,14 @@ To run the tests locally, make sure you are in the root directory of the app and
 npm run test
 ```
 
+## Test Coverage
+
+There is full test coverage. To observe this run the script:
+
+```bash
+npm run coverage
+```
+
 ## Notes from the author
 
 The initial [plan for development](./plan.md) is available to view.
