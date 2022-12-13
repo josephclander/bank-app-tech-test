@@ -35,4 +35,16 @@ describe('Display', () => {
     const result = ' || || 500.00 || -500.00';
     expect(accountDisplay.displayTransactions()).toContain(result);
   });
+  it('displays the correct formatted DATE for one transaction', () => {
+    const mockDate = new Date('2023-01-10');
+    const mockCredit = {
+      date: mockDate,
+      credit: 0,
+      debit: 500,
+      balance: -500,
+    };
+    const accountDisplay = new Display([mockCredit]);
+    const result = 'date || credit || debit || balance\n10/01/2023 || || 500.00 || -500.00';
+    expect(accountDisplay.displayTransactions()).toEqual(result);
+  });
 });

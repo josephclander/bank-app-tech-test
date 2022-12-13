@@ -21,7 +21,7 @@ class Display {
   }
 
   #formatTransaction(item) {
-    const { date } = item;
+    const date = item.date.toLocaleDateString();
     const credit = item.credit === 0 ? '' : `${item.credit.toFixed(2)} `;
     const debit = item.debit === 0 ? '' : `${item.debit.toFixed(2)} `;
     const balance = item.balance.toFixed(2);
