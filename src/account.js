@@ -7,20 +7,24 @@ class Account {
    * @param {number} currentBalance
    * @param {[objects]} transactions
    */
-  constructor() {
-    this.currentBalance = 0;
-    this.transactions = [];
-  }
+
+  // constructor() {
+  //   this.currentBalance = 0;
+  //   this.transactions = [];
+  // }
+
+    #currentBalance = 0;
+    #transactions = [];
 
   addDeposit(credit) {
     try {
       if (credit > 0 && typeof credit === 'number') {
-        this.currentBalance += credit;
-        this.transactions.push({
+        this.#currentBalance += credit;
+        this.#transactions.push({
           date: new Date(),
           credit,
           debit: 0,
-          balance: this.currentBalance,
+          balance: this.#currentBalance,
         });
         return 'deposit added';
       }
@@ -33,12 +37,12 @@ class Account {
   addWithdrawal(debit) {
     try {
       if (debit > 0 && typeof debit === 'number') {
-        this.currentBalance -= debit;
-        this.transactions.push({
+        this.#currentBalance -= debit;
+        this.#transactions.push({
           date: new Date(),
           credit: 0,
           debit,
-          balance: this.currentBalance,
+          balance: this.#currentBalance,
         });
         return 'withdrawal added';
       }
@@ -49,7 +53,10 @@ class Account {
   }
 
   listTransactions() {
-    return this.transactions;
+    // beware not full encapsulation - one level copy
+    // cannot add or subtract transactions
+    // but they can be manipulated
+    return [...this.#transactions];
   }
 }
 
