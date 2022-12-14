@@ -16,6 +16,8 @@
 
 [How to run tests](#how-to-run-tests)
 
+[Notes from the Author](#notes-from-the-author)
+
 ## The assignment
 
 Given a client makes a deposit of 1000 on 10-01-2023
@@ -93,4 +95,8 @@ The initial [plan for development](./plan.md) is available to view.
 - The ongoing balance was added to transaction objects to avoid:
   - numeric logic being added to the `Display` class
   - to create a function aiming for the assignment requirements first and foremost
+- Effort was taken on encapsulation. The `currentBalance` in the constructor isn't made available via a method, however constructor functions cannot be made private and so can be accessed directly. One last refactor was to remove the constructor and use `#currentBalance`. Now this is not accessible.
+- This makes this app work for non-malicious, normal use.
+- However, at this stage of the process, the `listTransactions()` function gives access to the `transactions` array, which contains references to the `transaction objects`. This means you can access them and change them.
+- A refactor would be to create encapsulated transactions.
 - Time was spent finding an appropriate `jest matcher` to ensure the date and numbers were tested separately despite being output on the same line.
