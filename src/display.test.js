@@ -44,7 +44,7 @@ describe('Display', () => {
       balance: -500,
     };
     const accountDisplay = new Display([mockCredit]);
-    const result = 'date || credit || debit || balance\n10/01/2023 || || 500.00 || -500.00';
+    const result = `date || credit || debit || balance\n${mockDate.toLocaleDateString()} || || 500.00 || -500.00`;
     expect(accountDisplay.displayTransactions()).toEqual(result);
   });
   it('displays shows multiple transactions most recent at the top', () => {
@@ -67,7 +67,7 @@ describe('Display', () => {
       balance: 2500,
     };
     const accountDisplay = new Display([mock1, mock2, mock3]);
-    const result = 'date || credit || debit || balance\n14/01/2023 || || 500.00 || 2500.00\n13/01/2023 || 2000.00 || || 3000.00\n10/01/2023 || 1000.00 || || 1000.00';
+    const result = `date || credit || debit || balance\n${mock3.date.toLocaleDateString()} || || 500.00 || 2500.00\n${mock2.date.toLocaleDateString()} || 2000.00 || || 3000.00\n${mock1.date.toLocaleDateString()} || 1000.00 || || 1000.00`;
     expect(accountDisplay.displayTransactions()).toEqual(result);
   });
 });

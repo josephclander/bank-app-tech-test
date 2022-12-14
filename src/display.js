@@ -31,9 +31,7 @@ class Display {
 
   #formatTransaction(item) {
     // unfortunately this does not take effect in GitHub actions node.js runner
-    const date = item.date.toLocaleDateString('en-GB', {
-      timeZone: 'Europe/London',
-    });
+    const date = item.date.toLocaleDateString();
     const credit = item.credit === 0 ? '' : `${item.credit.toFixed(2)} `;
     const debit = item.debit === 0 ? '' : `${item.debit.toFixed(2)} `;
     const balance = item.balance.toFixed(2);
