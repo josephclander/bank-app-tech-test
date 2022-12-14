@@ -2,8 +2,6 @@
 
 [![Tests](https://github.com/josephclander/bank-app-tech-test/actions/workflows/tests.yml/badge.svg)](https://github.com/josephclander/bank-app-tech-test/actions/workflows/tests.yml)
 
-**Tests pass on machines run in the UK - [see note below](#how-to-run-tests)**
-
 ## Contents
 
 [The assignment](#the-assignment)
@@ -73,6 +71,8 @@ You now have access to the two classes.
 [**A note on tests**] `GitHub actions` were setup to run a `Node.js` build and run the tests. These were successful until a date formatter was introduced. As I am local to the UK and the GitHub servers are located in the US, the date and month are reversed, thus breaking the tests. Despite setting the timezone to GMT in `/gitworkflows` and the local region to the UK in `.toLocalDateString("en-GB")`, GitHub runners do not have UK local outputs built in.
 
 I have not removed this badge as it shows use of CI/CD and I would like to find a solution to this [GitHub issue](https://github.com/actions/runner-images/issues/762).
+
+**SOLUTION** - I have updated the tests on `Display.test.js` to adapt the date string to the region they are run in.
 
 To run the tests locally, make sure you are in the root directory of the app and run:
 

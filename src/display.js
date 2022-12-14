@@ -31,6 +31,7 @@ class Display {
 
   #formatTransaction(item) {
     // unfortunately this does not take effect in GitHub actions node.js runner
+    // tests had to be adapted to be different based on locale
     const date = item.date.toLocaleDateString();
     const credit = item.credit === 0 ? '' : `${item.credit.toFixed(2)} `;
     const debit = item.debit === 0 ? '' : `${item.debit.toFixed(2)} `;
