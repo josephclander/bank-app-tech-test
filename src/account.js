@@ -13,22 +13,24 @@ class Account {
   //   this.transactions = [];
   // }
 
-    #currentBalance = 0;
-    #transactions = [];
+  #currentBalance = 0;
+  #transactions = [];
 
   addDeposit(credit) {
     try {
-      if (credit > 0 && typeof credit === 'number') {
+      if (credit > 0 && typeof credit === "number") {
         this.#currentBalance += credit;
-        this.#transactions.push({
+        const newObject = {
           date: new Date(),
           credit,
           debit: 0,
           balance: this.#currentBalance,
-        });
-        return 'deposit added';
+        };
+        const frozenObj = Object.freeze(newObject);
+        this.#transactions.push(frozenObj);
+        return "deposit added";
       }
-      throw Error('Invalid credit input');
+      throw Error("Invalid credit input");
     } catch (err) {
       return err.message;
     }
@@ -36,17 +38,19 @@ class Account {
 
   addWithdrawal(debit) {
     try {
-      if (debit > 0 && typeof debit === 'number') {
+      if (debit > 0 && typeof debit === "number") {
         this.#currentBalance -= debit;
-        this.#transactions.push({
+        const newObject = {
           date: new Date(),
           credit: 0,
           debit,
           balance: this.#currentBalance,
-        });
-        return 'withdrawal added';
+        }
+        const frozenObj = Object.freeze(newObject);
+        this.#transactions.push(frozenObj);
+        return "withdrawal added";
       }
-      throw Error('Invalid debit input');
+      throw Error("Invalid debit input");
     } catch (err) {
       return err.message;
     }
@@ -55,7 +59,6 @@ class Account {
   listTransactions() {
     // beware not full encapsulation - one level copy
     // cannot add or subtract transactions
-    // but they can be manipulated
     return [...this.#transactions];
   }
 }
