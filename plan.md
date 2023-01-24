@@ -4,7 +4,7 @@ Here are the results of my planning session. This is initially how I see the app
 
 ## Considerations
 
-A full featured banking app will contain more aspects than are mentioned in the requirements. I'm attempting to make as few assumptions about extra features that would be used and adhere to meeting the requirements as closely as possible.
+A full featured banking app will contain more aspects than are mentioned in the requirements. I'm believe extra features such as, calculating daily interest, would potentially change the approach I would take as you may want the current balance to be in a separate class.
 
 In my current plan, I am separating the banking logic from the display functions. I have also considered creating a 3rd class, `Transaction` but am leaving this currently but is possible for a refactor.
 
